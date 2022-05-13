@@ -13,23 +13,26 @@ class Quiz:
         button_colour = "red"
 
         # Quiz Main Menu GUI
-        self.quiz_frame = Frame(width=100, height=100,
-                                padx=100, pady=100, bg=background_colour)
+        root.geometry("400x400")
+        root.resizable(False, False)
+
+        self.quiz_frame = Frame(width=400, height=100,
+                                padx=1, pady=10, bg=background_colour)
         self.quiz_frame.grid()
 
         # Quiz Heading (row 0)
         self.quiz_header_label = Label(self.quiz_frame,
                                        text="Pataitai",
-                                       font=("Arial", 16, "bold"),
+                                       font=("Arial", 24, "bold"),
                                        bg=background_colour,
-                                       padx=10, pady=10)
-        self.quiz_header_label.grid(row=1, sticky=N)
+                                       padx=140, pady=5)
+        self.quiz_header_label.grid(row=1, column=2)
 
         # Help Button
         self.help_button = Button(self.quiz_frame, text="?",
                                   font=("Arial bold", 14),
                                   padx=5, pady=5, bg=button_colour)
-        self.help_button.grid(row=0, sticky=NE)
+        self.help_button.grid(row=0, column=3)
 
 
 # main routine
