@@ -18,7 +18,7 @@ class Quiz:
         root.resizable(False, False)
 
         self.quiz_frame = Frame(width=400, height=100,
-                                padx=1, pady=10, bg=background_colour)
+                                padx=1, pady=1, bg=background_colour)
         self.quiz_frame.grid()
 
         # Quiz Heading (row 0)
@@ -33,27 +33,28 @@ class Quiz:
         self.help_button = Button(self.quiz_frame, text="?",
                                   font=("Arial bold", 14),
                                   padx=10, pady=10, highlightbackground=button_colour)
-        self.help_button.grid(row=0, column=3)
+        self.help_button.place(x=300, y=5)
 
-        #quiz_button1
-        self.days_button = Button(self.quiz_frame, text="Days of the week",
-                                  font=("Arial", 14), padx=10, pady=10, highlightbackground=button_colour)
+        # quiz_button1
+        self.days_button = Button(self.quiz_frame, text=" Maori Days ",
+                                  font=("Arial", 14), padx=10, pady=10, highlightbackground=button_colour,
+                                  width=11)
         self.days_button.grid(row=3, column=1)
 
-        #quiz_button 2
-        self.days_button = Button(self.quiz_frame, text="Māori Colours",
+        # quiz_button 2
+        self.colours_button = Button(self.quiz_frame, text="Māori Colours",
                                   font=("Arial", 14), padx=10, pady=10, highlightbackground=button_colour)
-        self.days_button.grid(row=3, column=3)
+        self.colours_button.grid(row=3, column=3)
 
         # quiz_button 3
-        self.days_button = Button(self.quiz_frame, text="Numbers 1-10",
+        self.numbers_button = Button(self.quiz_frame, text="Numbers 1-10",
                                   font=("Arial", 14), padx=10, pady=10, highlightbackground=button_colour)
-        self.days_button.grid(row=4, column=1)
+        self.numbers_button.grid(row=4, column=1)
 
         # quiz_button 3
-        self.days_button = Button(self.quiz_frame, text="Months of the year",
+        self.month_button = Button(self.quiz_frame, text="Maori Months ",
                                   font=("Arial", 14), padx=10, pady=10, highlightbackground=button_colour)
-        self.days_button.grid(row=4, column=3)
+        self.month_button.grid(row=4, column=3)
 # main routine
 if __name__ == "__main__":
     root = Tk()
