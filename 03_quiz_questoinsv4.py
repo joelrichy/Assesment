@@ -1,5 +1,6 @@
-from tkinter import *
-
+# Trial 2 of 03_quiz_questionsv2
+# test to see if using a class system is better than importing questions from Csv
+# proper questions and formatting added
 
 class Questions:
     def __init__(self, question, options, answer):
@@ -30,12 +31,3 @@ question6 = Questions("What is Saturday in Maori",["Rātū", "Rātapu", "Rāpare
 question7 = Questions("What is Sunday in Maori",["Rātū", "Rātapu", "Rāpare", "Rāhina"], "Rātapu")
 
 print_question()
-
-
-
-# main routine
-#if __name__ == "__main__":
-    #root = Tk()
-    #root.title("Questions")
-   # something = Questions(root)
-   # root.mainloop()

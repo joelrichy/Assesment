@@ -15,7 +15,7 @@ class Quiz:
 
         # tempurature Converter heading (row 0)
         self.title_label = Label(self.quiz_frame,
-                                        text="Pataitai",
+                                        text="Maori Days of the Week",
                                         font="Arial 16 bold",
                                         bg=background_colour,
                                         padx=10, pady=10)
@@ -23,9 +23,10 @@ class Quiz:
 
         # user instructions (row 1)
         self.temp_instructions_label = Label(self.quiz_frame,
-                                             text="Instructions go here",
+                                             text="Press START to start quiz. Make sure to be sure of your answer"
+                                                  "before pressing the button",
                                              font="Arial 10 italic", wrap=250,
-                                             justify=LEFT, bg=background_colour,
+                                             justify=CENTER, bg=background_colour,
                                              padx=10, pady=10)
         self.temp_instructions_label.grid(row=1)
 
@@ -34,7 +35,7 @@ class Quiz:
         self.quiz_button_frame.grid(row=3, pady=10)
 
         self.quiz_button = Button(self.quiz_button_frame,
-                                  text="QUIZ", font="Arial 10 bold",
+                                  text="START", font="Arial 10 bold",
                                   bg="red", padx=10, pady=10)
         self.quiz_button.grid(row=0, column=0)
 

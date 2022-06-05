@@ -9,12 +9,19 @@ class Questions:
         self.option3 = option3
         self.option4 = option4
         self.answer = answer
+        self.opt_selected = StringVar()
+        self.opt1_text = StringVar()
+        self.opt2_text = StringVar()
+        self.opt3_text = StringVar()
+        self.opt4_text = StringVar()
         question_list.append(self)
-
+        self.qn = 0
+        self.correct = 0
         #self.ques = self.question(self.qn)
 
         # formatting variables
-        background_colour = "white"
+        background_colour = "red"
+        button_colour = "red"
 
 
         # converter frame
@@ -36,28 +43,73 @@ class Questions:
         # answer button 1
         self.answer_button1 = Button(self.answer_frame,
                                      text=self.option1, font="Arial 10 bold",
-                                     bg="red", padx=15, pady=15)
+                                     bg="red", command=lambda: self.check_answer(), padx=15, pady=15)
         self.answer_button1.grid(row=0, column=0)
 
         # answer button 2
         self.answer_button2 = Button(self.answer_frame,
                                   text=self.option2, font="Arial 10 bold",
-                                  bg="red", padx=15, pady=15)
+                                  bg="red", command=lambda: self.check_answer(), padx=15, pady=15)
         self.answer_button2.grid(row=0, column=1)
         # answer button 3
         self.answer_button3 = Button(self.answer_frame,
                                   text=self.option3, font="Arial 10 bold",
-                                  bg="red", padx=15, pady=15)
+                                  bg="red", command=self.check_answer(), padx=15, pady=15)
         self.answer_button3.grid(row=1, column=0)
 
         # answer button 4
         self.answer_button4 = Button(self.answer_frame,
                                   text=self.option4, font="Arial 10 bold",
-                                  bg="red", padx=15, pady=15)
+                                  bg="red", command=lambda: self.check_answer(), padx=15, pady=15)
         self.answer_button4.grid(row=1, column=1)
 
         global question_num
         question_num += 1
+
+
+    def check_answer(self):
+        self.opt_selected = self.answer_button1.get(), self.answer_button2.get(), self.answer_button3.get(), self.answer_button4.get()
+        selected = self.opt_selected
+        if selected == self.answer:
+            return True
+
+
+    def to_answer(self):
+        while self.check_answer is True:
+            correct()
+
+        incorrect()
+
+
+def correct():
+    root = Tk()
+
+    correct_frame = Frame(width=300, pady=10, bg='chartreuse')
+    correct_frame.grid()
+
+    correct_label = Label(correct_frame, text="CORRECT", font="Arial 16 bold", bg='chartreuse', padx=10, pady=10)
+    correct_label.grid(sticky='')
+
+    next_button = Button(correct_frame, text="NEXT", font="Arial 12 bold", bg='chartreuse', padx=5, pady=5)
+    next_button.grid(sticky=SE)
+
+    root.mainloop()
+
+def incorrect():
+    root = Tk()
+
+    incorrect_frame = Frame(width=300, pady=10, bg='firebrick1')
+    incorrect_frame.grid()
+
+    incorrect_label = Label(incorrect_frame, text="INCORRECT", font="Arial 16 bold", bg='firebrick1', padx=10,
+                            pady=10)
+    incorrect_label.grid(sticky='')
+
+    next_button = Button(incorrect_frame, text="NEXT", font="Arial 12 bold", bg='firebrick1', padx=5, pady=5)
+    next_button.grid(sticky=SE)
+
+    root.mainloop()
+
 
 question_list = []
 

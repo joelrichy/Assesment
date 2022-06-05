@@ -1,9 +1,12 @@
+# Trial 2 of 03_quiz_questions
+# test to see if using a class system is better than importing questions from Csv
+
 
 class Questions:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
-        questions.append(self)
+        question_list.append(self)
 
     def display_info(self):
         print("Question: ", self.question)
@@ -11,27 +14,20 @@ class Questions:
 
 
 def print_question():
-    for question in questions:
+    for question in question_list:
         question.display_info()
 
 
-def generate_questions():
-    import csv
-    with open('Days of the week.csv', 'r') as csvfile:
-        filereader = csv.DictReader(csvfile)
-        for line in filereader:
-            Questions(line['\ufeffQuestion'], line['Answer'])
-            #questions.append(line['\ufeffQuestion'])
-            #answers.append(line['Answer'])
-        #print(questions)
-        #print(answers)
+question_list = []
+
+question1 = Questions("1", "2")
+question2 = Questions("3", "4")
+question3 = Questions("5", "6")
+question4 = Questions("7", "8")
+question5 = Questions("9", "10")
 
 
-questions = []
-answers = []
-
-
-
+print_question()
 
 
 
